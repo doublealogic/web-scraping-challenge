@@ -1,10 +1,10 @@
 from flask import Flask, render_template, jsonify, redirect
-import pymongo
+from flask_pymongo import PyMongo
 import scrape_mars
 
 app = Flask(__name__)
 
-mongo = pymongo(app, uri="mongodb://localhost:27017/mission_to_mars_app")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mission_to_mars_app")
 
 @app.route("/")
 def index():
