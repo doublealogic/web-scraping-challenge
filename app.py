@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, redirect
+import flask_pymongo
 from flask_pymongo import PyMongo
 import scrape_mars
 
