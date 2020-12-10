@@ -24,23 +24,22 @@
         </div>
 
         <div class="row">
-        <div class="col-md-8">
-            <p style='font-size: 22px;font-weight: bold;'>Featured Mars Image</p>
-            <img style="width: 600px;height: 270px" src="{{ mars_dictionary.featured_image_url }}" class='img-responsive' alt="featured_image_url">
-        </div>
+            <div class="col-md-8">
+                <p style='font-size: 22px;font-weight: bold;'>Featured Mars Image</p>
+                <img style="width: 600px;height: 270px" src="{{ mars_dictionary.featured_image_url }}" class='img-responsive' alt="featured_image_url">
+            </div>
 
-        <div class="col-md-4">
-            <h4 style="font-size: 22px;font-weight:bold;">Mars Facts</h4>
-            {{ mars_dictionary.fact_table }}
-        </div>
+            <div class="col-md-4">
+                <h4 style="font-size: 22px;font-weight:bold;">Mars Facts</h4>
+                {{ mars_dictionary.fact_table }}
+            </div>
         </div>
 
         <br>
         <br>
 
         <div class="row">
-                <h2 style='font-size: 22px;text-align: center;font-weight: bold;'>Mars Hemispheres</h2>
-        </div>
+            <h2 style='font-size: 22px;text-align: center;font-weight: bold;'>Mars Hemispheres</h2>
             <hr class="my-4">
             {% for hemisphere in mars_dictionary.hemisphere_image_urls %}
                 <div class="col-md-6">
