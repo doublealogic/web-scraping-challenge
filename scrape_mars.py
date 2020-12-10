@@ -16,6 +16,8 @@ def init_browser():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 
+    return browser
+
 
 def scrape():
     browser = init_browser()
@@ -23,6 +25,7 @@ def scrape():
     # NASA Mars News
     url = 'https://mars.nasa.gov/news'
     browser.visit(url)
+    time.sleep(1)
 
     html = browser.html
     news_soup = BeautifulSoup(html, 'html.parser')
@@ -43,6 +46,7 @@ def scrape():
     # JPL Mars Space Images - Featured Image
     space_image_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(space_image_url)
+    time.sleep(1)
 
     image_html = browser.html
     image_soup = BeautifulSoup(image_html, 'html.parser')
@@ -63,6 +67,7 @@ def scrape():
 
     facts_table_df = facts_tables[0]
     facts_table_df.columns = ['Parameter of Mars', 'Fact']
+    facts_table_df.set_index('Parameter of Mars', inplace=True)
 
     # Converts the table dataframe into html format
     facts_html = facts_table_df.to_html()
@@ -72,6 +77,7 @@ def scrape():
     hemisphere_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     hemi_base = 'https://astrogeology.usgs.gov/'
     browser.visit(hemisphere_url)
+    time.sleep(1)
 
     hemi_html = browser.html
     hemi_soup = BeautifulSoup(hemi_html, 'html.parser')
@@ -84,6 +90,7 @@ def scrape():
         hemi_name = hemi_data.find('h3').text
         new_hemi_url = hemi_base + hemi_data.a['href']
         browser.visit(new_hemi_url)
+        time.sleep(1)
         
         new_hemi_html = browser.html
         new_hemi_soup = BeautifulSoup(new_hemi_html, 'html.parser')
