@@ -45,6 +45,6 @@ For this part, I used MongoDB with Flask templating to create a new HTML page th
 * `index.html` is a template HTML file that then takes the mars data dictionary and displays all of the data in the appropriate HTML elements.
 
 Here are some pictures of the final website:
-[Top Half](Images/Webpage_Top.PNG)
+![Top Half](Images/Webpage_Top.PNG)
 
-[Bottom Half](Images/Webpage_Bottom.PNG)
+![Bottom Half](Images/Webpage_Bottom.PNG)
